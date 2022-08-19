@@ -1,6 +1,6 @@
 # Advanced JavaScript Crash Course
 
-The contents of this course are derived from the Advanced JavaScript Crash Course located on The Codevolution YouTube Page: [Advanced JavaScript Crash Course](https://www.youtube.com/watch?v=R9I85RhI7Cg&list=PLC3y8-rFHvwhuX4qGvFx-wPy_MEi6Jdp7&index=6)
+This course is a contination of the JavaScript Fundmamentals Crash Course. The contents is derived from the Advanced JavaScript Crash Course located on The Codevolution YouTube Page: [Advanced JavaScript Crash Course](https://www.youtube.com/watch?v=R9I85RhI7Cg&list=PLC3y8-rFHvwhuX4qGvFx-wPy_MEi6Jdp7&index=6)
 
 ## Timestamps
 
@@ -9,12 +9,12 @@ The contents of this course are derived from the Advanced JavaScript Crash Cours
 01:58 Concepts covered\
 02:49 Setup\
 03:29 Nested function scope\
-08:24 Closure\
+08:24 Closures\
 16:12 Currying\
-22:35 this keyword\
+22:35 'this' keyword\
 32:15 Prototype\
 36:28 Prototypal inheritance\
-42:16 Class\
+42:16 Classes\
 47:08 Iterables and iterators\
 57:11 Generators\
 01:03:20 Frontend Interview Course\
