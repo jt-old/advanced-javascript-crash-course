@@ -382,7 +382,7 @@ A new looping construct was also introduced in 2015 to iterate over an iterable:
 // For..of Loop
 
 //String
-const str = 'Bennigans'
+/* const str = 'Bennigans'
 
 for (const char of str) {
   console.log(char)
@@ -393,6 +393,80 @@ const arr = ['B', 'e', 'n', 'n', 'i', 'g', 'a', 'n', 's']
 
 for (const item of arr) {
   console.log(item)
-}
+} */
 
 // We don't really have to worry about accessing the element from the data structure. It is just given to us one by one in a sequence, allowing us to focus on the functionality. In this example, we are just logging to the console, but you can add any functionality you want.
+
+// An object whcih implements the iterable protocol is called an iterable. For an object to be an iterable, it must implement a mthod at the key [Symbol.iterator]. That method should not accept any argument and should return an object whcih conforms to the iterator protocol.
+
+// The iterator protocol decides whether an object is an iterator. The object must have a next() method that returns an object with two properties: 1) value: which gives the current element, and 2) done: which is a boolean value indiciating whether or not there are any more elements that could be iterated upon.
+
+// This is example is basically the iterable protocol expresed as code:
+/* const obj = {
+  [Symbol.iterator]: function () {
+    const interator = {}
+    return iterator
+  },
+} */
+
+// To implement this iterator, it will look like this:
+
+/* const obj = {
+  [Symbol.iterator]: function () {
+    let step = 0
+    const iterator = {
+      next: function () {
+        step++
+        if (step === 1) {
+          return { value: 'Hello', done: false }
+        } else if (step === 2) {
+          return { value: 'World', done: false }
+        }
+        return { value: undefined, done: true }
+      },
+    }
+    return iterator
+  },
+}
+
+for (const word of obj) {
+  console.log(word)
+} */
+
+// Generators
+
+// Generators are a special class of functions that simplify the task of writing iterators.
+
+// A normal function follows the run to completion model. So, when we add two log statements, the normal function will not stop stop before the last line is executed. The only way to exit this function is by returning from it or throwing an error.
+
+// Normal Function:
+
+/* function normalFunction() {
+  console.log('hello')
+  console.log('world')
+}
+
+normalFunction() // hello world
+normalFunction() // hello world */
+
+// A generator function is a function that can pause the execution midway and then continue from where it stopped.
+
+// There are several benefits of using a generator function, including not having to worry about using the symbol.iterator, not having to worry about implement the 'next' method, not having to create the object that is returned from the 'next' method, and not having to be responsible for managing the state in the iterator or using a step variable
+
+// Since generators are a special function, we use the function keyword followed by an asterisk
+
+// To pause the exeuction, we use the word 'yield'. Yield is an operator with which a generator can pause itself. Everytime a generator encounters a yield, it yields the value specified. We don't say that it returns a value. We say that it yields a value.
+
+// A generator function always returns a generator object. The generator object is an iterator. So, instead of having to create an iterator, a generator function will create it for us. Since the generator object is an iterator, it can be used i for-of loops.
+
+// Generator Function
+
+/* function* generatorFunction() {
+  yield 'hello'
+  yield 'world'
+}
+
+const generatorObject = generatorFunction()
+for (const word of generatorObject) {
+  console.log(word)
+} */
